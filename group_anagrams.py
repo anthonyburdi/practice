@@ -11,42 +11,52 @@
 #   ["bat"]
 # ]
 # Note: All inputs will be in lower-case.
-
 import pprint
 
-INPUT = ["eat", "tea", "tan", "ate", "nat", "bat"]
-print 'INPUT anagrams: '
-print INPUT
-OUTPUT = []
 
-word_letter_counts = []
+def groupAnagrams(strs):
+    """
+    :type strs: List[str]
+    :rtype: List[List[str]]
+    """
+    output = []
 
-for idx, word in enumerate(INPUT):
-    word_dict = {}
-    for letter in word:
-        if word_dict.get(letter):
-            word_dict[letter] += 1
-        else:
-            word_dict[letter] = 1
+    word_letter_counts = []
 
-    word_letter_counts.append(word_dict)
+    for idx, word in enumerate(strs):
+        word_dict = {}
+        for letter in word:
+            if word_dict.get(letter):
+                word_dict[letter] += 1
+            else:
+                word_dict[letter] = 1
 
-while word_letter_counts:
-    anagram_list = []
+        word_letter_counts.append(word_dict)
 
-    word_to_check = word_letter_counts.pop(0)
-    word = INPUT.pop(0)
-    anagram_list.append(word)
+    while word_letter_counts:
+        anagram_list = []
 
-    for idx, word_letter_count in enumerate(word_letter_counts):
-        if word_to_check == word_letter_count:
-            # add the matching word to the anagram list and remove
-            # from input and word_letter_counts
-            anagram_list.append(INPUT.pop(idx))
-            word_letter_counts.pop(idx)
+        word_to_check = word_letter_counts.pop(0)
+        word = strs.pop(0)
+        anagram_list.append(word)
 
-    anagram_list.sort()
-    OUTPUT.append(anagram_list)
+        for idx, word_letter_count in enumerate(word_letter_counts):
+            if word_to_check == word_letter_count:
+                # add the matching word to the anagram list and remove
+                # from input and word_letter_counts
+                anagram_list.append(strs.pop(idx))
+                word_letter_counts.pop(idx)
 
-print 'OUTPUT anagrams:'
-pprint.pprint(OUTPUT)
+        anagram_list.sort()
+        output.append(anagram_list)
+    return output
+
+input_words = ["eat", "tea", "tan", "ate", "nat", "bat"]
+print 'input_words anagrams: '
+print input_words
+
+pp = pprint.PrettyPrinter(indent=4)
+print 'Output anagrams:'
+pp.pprint(groupAnagrams(input_words))
+
+
