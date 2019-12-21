@@ -32,7 +32,6 @@ class Solution:
         # Stop if there are less items left than the max_length found
         # Since there aren't enough items to beat that max_length we can stop
 
-        # nums = [1,3,5,4,2,3,4,5]
         if not nums:
             return 0
         if len(nums) < 2:
