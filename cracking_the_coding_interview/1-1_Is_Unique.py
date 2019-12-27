@@ -4,7 +4,7 @@
 # Implement an algorithm to determine if a string has all unique characters.
 # What if you cannot use additional data structures?
 
-def is_unique(string: str) -> bool:
+def is_unique(s: str) -> bool:
     """Determine if a string has all unique characters."""
 
     # Approach, Time & Space Complexity & Possible Improvements:
@@ -31,7 +31,7 @@ def is_unique(string: str) -> bool:
     # Approach 1
     # char_counts = {}
 
-    # for character in string:
+    # for character in s:
     #     char_counts[character] = char_counts.get(character, 0) + 1
     #     if char_counts[character] > 1:
     #         return False
@@ -41,7 +41,7 @@ def is_unique(string: str) -> bool:
     # Approach 2
     char_set = set()
 
-    for character in string:
+    for character in s:
         if character in char_set:
             return False
         else:
@@ -50,7 +50,7 @@ def is_unique(string: str) -> bool:
     return True
 
     # Approach 3
-    # sorted_string = sorted(string)
+    # sorted_string = sorted(s)
     # previous_character = ''
 
     # for character in sorted_string:
