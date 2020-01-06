@@ -125,9 +125,33 @@ def run_gravity_assist(filename: str) -> int:
     intcode[2] = 2
 
     result = process_intcode(intcode)
-    print("Gravity Assist Program First Digit:", result)
+    print("Gravity Assist Program First Digit (Part One):", result)
 
     return result
+
+
+def program_for_19690720(filename: str, desired_output: int) -> int:
+    """Find the alarm code to get 19690720 as the output."""
+
+    if not filename:
+        filename = "2019-Day2-input.txt"
+    if not desired_output:
+        desired_output = 19690720
+
+    # Brute force try all combinations
+    for noun in range(100):
+        for verb in range(100):
+            intcode = read_in_intcode(filename)
+            intcode[1] = noun
+            intcode[2] = verb
+
+            output = process_intcode(intcode)
+
+            if output == desired_output:
+                return (100 * noun) + verb
+
+
+
 
 
 import unittest
@@ -182,6 +206,27 @@ class TestProcessIntcode(unittest.TestCase):
         self.assertEqual(
             run_gravity_assist(filename),
             4570637
+        )
+
+    def test_program_for_19690720(self):
+        filename = "2019-Day2-input.txt"
+        desired_output = 19690720
+        print("Noun and Verb for Input (Part Two):",
+            program_for_19690720(filename, desired_output)
+        )
+
+        # Test 5485
+        intcode = read_in_intcode(filename)
+
+        # Restore to 5485 program alarm state
+        intcode[1] = 54
+        intcode[2] = 85
+
+        result = process_intcode(intcode)
+
+        self.assertEqual(
+            result,
+            desired_output
         )
 
 
