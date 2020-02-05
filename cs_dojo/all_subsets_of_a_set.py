@@ -20,7 +20,7 @@ def all_subsets(given_array: List, subsets: List) -> None:
 def helper(given_array: List, subset: List, i: int, subsets: List) -> None:
 
     if i == len(given_array):
-        # print(subset)
+        print(subset)
         # remove None
         temp_subset = [n for n in subset if n is not None]
         subsets.append(temp_subset)
@@ -37,14 +37,17 @@ import unittest
 
 class TestAllSubsets(unittest.TestCase):
 
+    def setUp(self):
+        subsets = []
+
     def test_given_example(self):
 
         given_array = [1, 2]
 
         self.assertEqual(
-            all_subsets(given_array, subsets).sort(),
-            # [[None, None],[1, None],[None, 2],[1, 2]].sort()
-            [[], [1], [2], [1, 2]].sort()
+            sorted(all_subsets(given_array, subsets)),
+            # [[None, None],[1, None],[None, 2],[1, 2]]
+            sorted([[], [1], [2], [1, 2]])
         )
 
 
