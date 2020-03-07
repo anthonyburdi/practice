@@ -2,7 +2,7 @@
 
 # Given an integer n and a list of integers l, write a function that randomly generates a number from 0 to n-1 that isn't in l (uniform).
 
-# 2:25p start
+# 2:25p start 2:46p end
 
 # Assumptions
 # random generation has to be uniformly distributed (except for items in l)
