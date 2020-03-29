@@ -120,9 +120,6 @@ import sys
 
 def find_median(counts):
     """Find the median of a counted set of values."""
-
-        #     c = [0,0,2,1,1,0,0,0,0]
-        # self.assertEqual(2.5, find_median(c))
     
     even = sum(counts) % 2 == 0
     first_count = (sum(counts) // 2)
@@ -152,41 +149,6 @@ def find_median(counts):
             return (index_first_count + index_mid_count) / 2
 
         i += 1
-
-
-    # # if sum(counts) % 2 == 0:
-    # if even:
-    #     # find the middle two values and average
-    #     first_count = (sum(counts) // 2)
-    #     second_count = (sum(counts) // 2) + 1
-    #     # counts = [0,0,2,1,1,0,0,0,0]
-    #     # counts = [0,1,2,3,4,5,6,7,8] (indices)
-    #     # 2, 3
-        
-    #     curr_count = 0
-    #     for idx, b in enumerate(counts):
-    #         curr_count += b
-    #         if curr_count >= first_count:
-    #             first_value = idx
-    #             break
-
-    #     curr_count = 0
-    #     for idx, b in enumerate(counts):
-    #         curr_count += b
-    #         if curr_count >= second_count:
-    #             second_value = idx
-    #             break
-
-    #     return (first_value + second_value) / 2
-
-    # else:
-    #     # find the middle value
-    #     mid_count = (sum(counts) // 2) + 1
-    #     curr_count = 0
-    #     for idx, b in enumerate(counts):
-    #         curr_count += b
-    #         if curr_count >= mid_count:
-    #             return idx
 
 
 # Complete the activityNotifications function below.
@@ -219,78 +181,6 @@ def activityNotifications(expenditure, d):
 
     return notifications
 
-    # def find_median(l):
-    #     """Find the median of a list of integers l."""
-    #     sorted_list = sorted(l)
-    #     if len(sorted_list) % 2 == 0:
-    #         first_index = (len(sorted_list) // 2) - 1
-    #         second_index = first_index + 1
-    #         return (sorted_list[first_index] + sorted_list[second_index]) / 2
-
-    #     else:
-    #         index = len(sorted_list) // 2
-    #         return sorted_list[index]
-
-
-    # def find_median_bucket_sort(l):
-    #     """Median of a list of integers between 0-200 l using bucket sort."""
-
-    #     buckets = [0] * 201
-    #     for item in l:
-    #         buckets[item] += 1
-
-    #     if len(l) % 2 == 0:
-    #         # find the middle two values and average
-    #         first_count = (len(l) // 2)
-    #         second_count = (len(l) // 2) + 1
-
-    #         curr_count = 0
-    #         for idx, b in enumerate(buckets):
-    #             curr_count += b
-    #             if curr_count >= first_count:
-    #                 first_value = idx
-
-    #         curr_count = 0
-    #         for idx, b in enumerate(buckets):
-    #             curr_count += b
-    #             if curr_count >= second_count:
-    #                 second_value = idx
-
-    #         return (first_value + second_value) / 2
-
-
-    #     else:
-    #         # find the middle value
-    #         mid_count = (len(l) // 2) + 1
-    #         curr_count = 0
-    #         for idx, b in enumerate(buckets):
-    #             curr_count += b
-    #             if curr_count >= mid_count:
-    #                 return idx
-
-
-    # # Edge cases
-    # if len(expenditure) <= d:
-    #     return 0
-
-    # num_notifications = 0
-    # i = d
-    # while i < len(expenditure):
-    #     # d = 3
-    #     # i = 4
-    #     # n = [1,2,3,4,5,6,7]
-    #     # e = [0,1,2,3,4,5,6]
-    #     trailing_values = expenditure[i - d : i]
-    #     # running_median = find_median(trailing_values)
-    #     running_median = find_median_bucket_sort(trailing_values)
-
-    #     if float(expenditure[i]) >= running_median * 2.0:
-    #         num_notifications += 1
-
-    #     i += 1
-
-
-    # return num_notifications
 
 import unittest
 
